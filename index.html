@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdur Rehman | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="logo">AR</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" onclick="closeMenu()">Home</a></li>
+        <li><a href="#about" onclick="closeMenu()">About</a></li>
+        <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+        <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home">
+    <div class="hero">
+      <div class="hero-content fade-in">
+        <p class="greeting">Hi, I'm</p>
+        <h1>Abdur Rehman</h1>
+        <p class="tagline">Data Science & AI &bull; Blockchain &bull; Big Data</p>
+        <p class="sub-tagline">Building intelligent systems across web3, ML, and data engineering</p>
+        <div class="hero-links">
+          <a href="https://github.com/Zin-7045" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/abdur-rehman-581305358?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:abdur.dev@outlook.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <a href="#projects" class="btn">View My Work <i class="fas fa-arrow-down"></i></a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span></span>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title fade-in">About Me</h2>
+      <div class="about-content fade-in">
+        <p>I work at the intersection of <strong>Data Science</strong>, <strong>Blockchain</strong>, and <strong>Big Data Engineering</strong>. I build everything from ML-powered applications and real-time fraud detection pipelines to decentralized apps on Ethereum.</p>
+        <p>Currently exploring Deep Learning & Computer Vision while shipping full-stack AI systems with RAG architectures, streaming data pipelines, and smart contract development.</p>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-num">5+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">3</span>
+            <span class="stat-label">Tech Stacks</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">ML</span>
+            <span class="stat-label">AI & Data</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title fade-in">Skills</h2>
+      <div class="skills-grid fade-in">
+        <div class="skill-category">
+          <div class="skill-icon"><i class="fas fa-code"></i></div>
+          <h3>Languages</h3>
+          <div class="skill-tags">
+            <span>Python</span><span>JavaScript</span><span>TypeScript</span><span>Solidity</span><span>SQL</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-icon"><i class="fas fa-link"></i></div>
+          <h3>Blockchain & Web3</h3>
+          <div class="skill-tags">
+            <span>Ethereum</span><span>Web3.js</span><span>Hardhat</span><span>Smart Contracts</span><span>MetaMask</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-icon"><i class="fas fa-brain"></i></div>
+          <h3>Data Science & ML</h3>
+          <div class="skill-tags">
+            <span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>XGBoost</span><span>TensorFlow</span><span>Jupyter</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-icon"><i class="fas fa-database"></i></div>
+          <h3>Big Data & Streaming</h3>
+          <div class="skill-tags">
+            <span>Apache Kafka</span><span>Spark</span><span>FAISS</span><span>PostgreSQL</span><span>Redis</span><span>MongoDB</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-icon"><i class="fas fa-tools"></i></div>
+          <h3>Tools & Frameworks</h3>
+          <div class="skill-tags">
+            <span>FastAPI</span><span>React</span><span>Docker</span><span>Git</span><span>Node.js</span><span>n8n</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-icon"><i class="fas fa-robot"></i></div>
+          <h3>LLM & RAG</h3>
+          <div class="skill-tags">
+            <span>Sentence Transformers</span><span>Groq</span><span>HuggingFace</span><span>RAG Pipelines</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title fade-in">Featured Projects</h2>
+      <div class="projects-grid fade-in">
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-icon"><i class="fas fa-robot"></i></span>
+            <span class="project-badge">AI / RAG</span>
+          </div>
+          <h3>DISHBRAIN — AI Recipe Generator</h3>
+          <p>Full-stack Retrieval-Augmented Generation system using FAISS vector search, Kafka streaming, and ensemble LLM inference (T5, GPT-2, Groq LLaMA) that transforms ingredients into step-by-step recipes.</p>
+          <div class="project-tags">
+            <span>Python</span><span>FAISS</span><span>Kafka</span><span>React</span><span>FastAPI</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Zin-7045/RecipeGenerator" target="_blank" class="btn-small"><i class="fab fa-github"></i> Repo</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-icon"><i class="fas fa-shield-alt"></i></span>
+            <span class="project-badge badge-green">Big Data</span>
+          </div>
+          <h3>Sentinel — Real-Time Fraud Detection</h3>
+          <p>Enterprise Big Data pipeline with Apache Kafka, Spark Structured Streaming, and weighted ensemble ML (Isolation Forest + XGBoost + LSTM) detecting financial fraud at ~95% AUC-ROC with a live React dashboard.</p>
+          <div class="project-tags">
+            <span>Kafka</span><span>Spark</span><span>XGBoost</span><span>LSTM</span><span>Docker</span><span>React</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Zin-7045/Sentinel-Fraud-Detection" target="_blank" class="btn-small"><i class="fab fa-github"></i> Repo</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-icon"><i class="fas fa-link"></i></span>
+            <span class="project-badge badge-purple">Web3</span>
+          </div>
+          <h3>BookinPK — Decentralized Booking dApp</h3>
+          <p>Ethereum-based decentralized booking platform with Solidity smart contracts, MetaMask wallet integration, and on-chain transaction tracking for peer-to-peer reservation services.</p>
+          <div class="project-tags">
+            <span>Solidity</span><span>Ethereum</span><span>Web3.js</span><span>Hardhat</span><span>React</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Zin-7045/bookinpk-dapp" target="_blank" class="btn-small"><i class="fab fa-github"></i> Repo</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title fade-in">Get In Touch</h2>
+      <p class="contact-text fade-in">I'm always open to interesting projects and collaborations.</p>
+      <div class="contact-links fade-in">
+        <a href="mailto:abdur.dev@outlook.com" class="btn"><i class="fas fa-envelope"></i> Email</a>
+        <a href="https://www.linkedin.com/in/abdur-rehman-581305358?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="btn"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+        <a href="https://github.com/Zin-7045" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Abdur Rehman. Built with <i class="fas fa-heart"></i></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
