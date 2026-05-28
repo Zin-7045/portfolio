@@ -803,8 +803,8 @@ footer i {
     margin: 16px 0;
   }
   .avatar-mobile img {
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid rgba(124, 106, 255, 0.3);
