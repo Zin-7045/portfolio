@@ -318,8 +318,8 @@ nav {
 .hero-avatar { display: flex; justify-content: center; align-items: center; }
 
 .avatar-frame {
-  width: 220px;
-  height: 220px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid rgba(124, 106, 255, 0.3);
