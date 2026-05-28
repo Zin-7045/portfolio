@@ -223,6 +223,8 @@ nav {
   margin-bottom: 14px;
 }
 
+.avatar-mobile { display: none; }
+
 .typewriter {
   font-size: 1.6rem;
   font-weight: 600;
@@ -795,12 +797,24 @@ footer i {
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; text-align: center; }
   .hero-text h1 { font-size: 2.5rem; }
+  .avatar-mobile {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0;
+  }
+  .avatar-mobile img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(124, 106, 255, 0.3);
+    box-shadow: 0 0 40px rgba(124, 106, 255, 0.15), 0 0 80px rgba(59, 201, 176, 0.08);
+  }
   .hero-desc { margin: 0 auto 30px; }
   .hero-actions { justify-content: center; }
   .hero-social { justify-content: center; }
   .hero-code { display: none; }
-  .hero-right { flex-direction: column-reverse; padding-bottom: 10px; }
-  .hero-right .code-window { display: none; }
+  .hero-right { display: none; }
   .scroll-indicator { display: none; }
   .about-grid { grid-template-columns: 1fr; }
   .about-text { order: -1; }
