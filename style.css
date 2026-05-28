@@ -28,6 +28,7 @@ a { text-decoration: none; color: inherit; }
   background: linear-gradient(135deg, #7c6aff, #3bc9b0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  white-space: nowrap;
 }
 
 .section-label {
