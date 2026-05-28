@@ -14,4 +14,4 @@ Built with HTML, CSS, and JavaScript. Deployed via Netlify.
 
 ## Live Site
 
-https://datascience-portfolio-website.netlify.app/
+https://abdurrehman7045.netlify.app/
