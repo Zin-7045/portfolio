@@ -798,7 +798,8 @@ footer i {
   .hero-actions { justify-content: center; }
   .hero-social { justify-content: center; }
   .hero-code { display: none; }
-  .hero-right { display: none; }
+  .hero-right { flex-direction: column-reverse; }
+  .hero-right .code-window { display: none; }
   .about-grid { grid-template-columns: 1fr; }
   .about-text { order: -1; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
@@ -826,6 +827,7 @@ footer i {
 @media (max-width: 500px) {
   .hero-text h1 { font-size: 2rem; }
   .section-title { font-size: 1.6rem; }
+  .avatar-frame { width: 120px; height: 120px; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .footer-inner { flex-direction: column; gap: 10px; }
 }
