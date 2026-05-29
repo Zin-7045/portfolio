@@ -23,6 +23,16 @@ window.addEventListener('scroll', () => {
   navLinks.forEach(link => {
     link.classList.toggle('active', link.getAttribute('href') === '#' + current);
   });
+  
+  // Dynamic header scrolled scaling
+  const navbar = document.querySelector('nav');
+  if (navbar) {
+    if (window.scrollY > 40) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  }
 });
 
 /* ===== TYPEWRITER ===== */
@@ -92,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCursorTracker();
   initStatsCounters();
   initMagneticNodes();
+  initCardSpotlights();
 });
 
 /* ===== 1. CUSTOM TRAILING CURSOR HALO ===== */
@@ -194,7 +205,7 @@ function initMagneticNodes() {
   });
 }
 
-/* ===== 4. EMAIL COPY TO CLIPBOARD SUCCESS TOAST ===== */
+/* ===== 4. EMAIL COPY TO CLIPBOARD SUCCESS TOAST & MAILTO APP REDIRECT ===== */
 window.copyEmail = function(triggerBtn) {
   const email = 'abdur.dev@outlook.com';
   const toast = document.getElementById('connectToast');
@@ -204,8 +215,14 @@ window.copyEmail = function(triggerBtn) {
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 2200);
     }
+    // Launch email app after a minor delay
+    setTimeout(() => {
+      window.location.href = `mailto:${email}`;
+    }, 300);
   }).catch(err => {
     console.error('Copy pipeline failed: ', err);
+    // Fallback: Launch email app immediately if clipboard blocked
+    window.location.href = `mailto:${email}`;
   });
 };
 
@@ -230,4 +247,23 @@ window.runHeroCode = function(btn) {
     btn.style.borderColor = 'rgba(124, 106, 255, 0.3)';
   }
 };
+
+
+
+/* ===== 7. VERCEL-STYLE CARD HOVER SPOTLIGHTS ===== */
+function initCardSpotlights() {
+  const cards = document.querySelectorAll('.project-card, .stat-card');
+  
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+}
+
 

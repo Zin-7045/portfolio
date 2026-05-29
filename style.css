@@ -52,19 +52,33 @@ a { text-decoration: none; color: inherit; }
 /* ===== NAV ===== */
 nav {
   position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(7, 7, 13, 0.8);
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1000px;
+  background: rgba(12, 12, 18, 0.6);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  z-index: 100;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  z-index: 1000; /* Elevated z-index */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 40px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+nav.scrolled {
+  top: 12px;
+  transform: translateX(-50%) scale(0.98);
+  background: rgba(8, 8, 12, 0.85);
+  border-color: rgba(124, 106, 255, 0.15);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 12px rgba(124, 106, 255, 0.08);
 }
 
 .nav-inner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 16px 24px;
+  padding: 8px 16px 8px 24px; /* Reduced vertical padding for pill structure */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -143,7 +157,7 @@ nav {
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 0 24px;
+  padding: 0 24px 80px; /* 80px bottom padding to prevent touching the baseline */
 }
 
 .hero-bg {
@@ -198,7 +212,8 @@ nav {
   width: 100%;
   position: relative;
   z-index: 1;
-  padding-top: 60px;
+  padding-top: 130px;
+  padding-bottom: 60px; /* Pushes content away from baseline */
 }
 
 .hero-text .badge {
@@ -326,8 +341,8 @@ nav {
 }
 
 .avatar-frame {
-  width: 200px;
-  height: 200px;
+  width: 170px;
+  height: 170px;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid rgba(124, 106, 255, 0.3);
@@ -434,7 +449,7 @@ nav {
 
 /* ===== ABOUT ===== */
 #about {
-  padding: 120px 0;
+  padding: 80px 0;
   background: #0a0a16;
 }
 
@@ -795,6 +810,8 @@ footer i {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
+  #home { padding-top: 130px; }
+  #about { padding: 60px 0; }
   .hero { grid-template-columns: 1fr; text-align: center; }
   .hero-text h1 { font-size: 2.5rem; }
   .avatar-mobile {
@@ -803,8 +820,8 @@ footer i {
     margin: 16px 0;
   }
   .avatar-mobile img {
-    width: 160px;
-    height: 160px;
+    width: 135px;
+    height: 135px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid rgba(124, 106, 255, 0.3);
@@ -828,22 +845,26 @@ footer i {
   .nav-links.open {
     display: flex;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 12px);
     left: 0;
     width: 100%;
-    background: rgba(7, 7, 13, 0.98);
+    background: rgba(12, 12, 18, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
     flex-direction: column;
     padding: 24px;
     gap: 16px;
     text-align: center;
-    border-bottom: 1px solid #1a1a38;
   }
 }
 
 @media (max-width: 500px) {
   .hero-text h1 { font-size: 2rem; }
   .section-title { font-size: 1.6rem; }
-  .avatar-frame { width: 120px; height: 120px; }
+  .avatar-mobile img { width: 110px; height: 110px; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .footer-inner { flex-direction: column; gap: 10px; }
 }
@@ -1012,4 +1033,54 @@ body.cursor-active .cursor-ring {
     transform: translate(0);
   }
 }
+
+/* ==========================================================================
+   FURTHER HIGH-FIDELITY ADDITIONS (SPOTLIGHTS, CLOCKS, GLITCHES)
+   ========================================================================== */
+
+/* ===== 1. CARD SPOTLIGHT GLOW EFFECT (VERCEL STYLE) ===== */
+.project-card, .stat-card {
+  position: relative;
+  overflow: hidden;
+}
+.project-card::before, .stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: radial-gradient(
+    280px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(124, 106, 255, 0.45),
+    transparent 80%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 3;
+}
+.project-card::after, .stat-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    320px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(124, 106, 255, 0.035),
+    transparent 80%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 1;
+}
+.project-card:hover::before, .stat-card:hover::before,
+.project-card:hover::after, .stat-card:hover::after {
+  opacity: 1;
+}
+
+
+
 
