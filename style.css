@@ -161,39 +161,45 @@ nav.scrolled {
 }
 
 .hero-bg {
-  position: absolute;
+  position: fixed; /* Fixed globally behind all sections */
   inset: 0;
   overflow: hidden;
   pointer-events: none;
+  z-index: -1; /* Behind content layers */
 }
 
 .shape {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.15;
+  filter: blur(100px); /* Slightly increased blur for seamless emerging feel */
+  opacity: 0.12; /* Refined opacity for ambient soft colors */
+  will-change: transform;
+  transform: translate3d(0, 0, 0); /* Forces GPU rasterization for smooth rendering on mobile */
 }
 
 .s1 {
   width: 500px; height: 500px;
-  background: #7c6aff;
+  background: var(--glow-1, #7c6aff);
   top: -10%; left: -10%;
   animation: floatShape 8s ease-in-out infinite;
+  transition: background 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .s2 {
   width: 400px; height: 400px;
-  background: #3bc9b0;
+  background: var(--glow-2, #3bc9b0);
   bottom: -10%; right: -10%;
   animation: floatShape 10s ease-in-out infinite reverse;
+  transition: background 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .s3 {
   width: 300px; height: 300px;
-  background: #7c6aff;
+  background: var(--glow-3, #7c6aff);
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   animation: floatShape 12s ease-in-out infinite;
+  transition: background 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes floatShape {
@@ -345,16 +351,17 @@ nav.scrolled {
   height: 170px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid rgba(124, 106, 255, 0.3);
-  box-shadow: 0 0 40px rgba(124, 106, 255, 0.15), 0 0 80px rgba(59, 201, 176, 0.08);
+  border: 3px solid rgba(124, 106, 255, 0.35);
+  box-shadow: 0 0 30px rgba(124, 106, 255, 0.25), 0 0 60px rgba(59, 201, 176, 0.1);
   transition: all 0.4s;
   flex-shrink: 0;
+  animation: avatarGlowPulse 5s ease-in-out infinite alternate;
 }
 
 .avatar-frame:hover {
-  border-color: #7c6aff;
-  box-shadow: 0 0 60px rgba(124, 106, 255, 0.3), 0 0 120px rgba(59, 201, 176, 0.15);
-  transform: scale(1.03);
+  border-color: #3bc9b0;
+  box-shadow: 0 0 50px rgba(124, 106, 255, 0.6), 0 0 100px rgba(59, 201, 176, 0.35);
+  transform: scale(1.04);
 }
 
 .avatar-frame img {
@@ -450,7 +457,7 @@ nav.scrolled {
 /* ===== ABOUT ===== */
 #about {
   padding: 80px 0;
-  background: #0a0a16;
+  background: transparent;
 }
 
 .about-grid {
@@ -607,7 +614,7 @@ nav.scrolled {
 /* ===== PROJECTS ===== */
 #projects {
   padding: 120px 0;
-  background: #0a0a16;
+  background: transparent;
 }
 
 .project-card.featured {
@@ -828,8 +835,9 @@ footer i {
     height: 135px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid rgba(124, 106, 255, 0.3);
-    box-shadow: 0 0 40px rgba(124, 106, 255, 0.15), 0 0 80px rgba(59, 201, 176, 0.08);
+    border: 3px solid rgba(124, 106, 255, 0.35);
+    box-shadow: 0 0 30px rgba(124, 106, 255, 0.25), 0 0 60px rgba(59, 201, 176, 0.1);
+    animation: avatarGlowPulse 5s ease-in-out infinite alternate;
   }
   .hero-desc { margin: 0 auto 30px; }
   .hero-actions { justify-content: center; }
@@ -1083,6 +1091,18 @@ body.cursor-active .cursor-ring {
 .project-card:hover::before, .stat-card:hover::before,
 .project-card:hover::after, .stat-card:hover::after {
   opacity: 1;
+}
+
+/* ===== 2. PULSING BREATHING AVATAR GLOWS ===== */
+@keyframes avatarGlowPulse {
+  0% {
+    box-shadow: 0 0 25px rgba(124, 106, 255, 0.25), 0 0 50px rgba(59, 201, 176, 0.1);
+    border-color: rgba(124, 106, 255, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 45px rgba(124, 106, 255, 0.5), 0 0 85px rgba(59, 201, 176, 0.25);
+    border-color: rgba(59, 201, 176, 0.55);
+  }
 }
 
 

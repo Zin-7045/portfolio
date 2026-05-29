@@ -33,6 +33,30 @@ window.addEventListener('scroll', () => {
       navbar.classList.remove('scrolled');
     }
   }
+
+  // Immersive emerging scroll background flow
+  const root = document.documentElement;
+  if (current === 'home' || !current) {
+    root.style.setProperty('--glow-1', '#7c6aff'); // Electric Indigo
+    root.style.setProperty('--glow-2', '#3bc9b0'); // Neon Cyan/Teal
+    root.style.setProperty('--glow-3', '#7c6aff');
+  } else if (current === 'about') {
+    root.style.setProperty('--glow-1', '#3bc9b0'); // Cyan/Teal
+    root.style.setProperty('--glow-2', '#5a4ce0'); // Deep Ocean Blue
+    root.style.setProperty('--glow-3', '#3bc9b0');
+  } else if (current === 'skills') {
+    root.style.setProperty('--glow-1', '#a855f7'); // Violet/Purple
+    root.style.setProperty('--glow-2', '#7c6aff'); // Electric Indigo
+    root.style.setProperty('--glow-3', '#a855f7');
+  } else if (current === 'projects') {
+    root.style.setProperty('--glow-1', '#3bc9b0'); // Neon Cyan
+    root.style.setProperty('--glow-2', '#a855f7'); // Neon Violet
+    root.style.setProperty('--glow-3', '#3bc9b0');
+  } else if (current === 'contact') {
+    root.style.setProperty('--glow-1', '#7c6aff'); // Electric Indigo
+    root.style.setProperty('--glow-2', '#3bc9b0'); // Neon Teal
+    root.style.setProperty('--glow-3', '#7c6aff');
+  }
 });
 
 /* ===== TYPEWRITER ===== */
