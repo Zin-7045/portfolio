@@ -847,3 +847,169 @@ footer i {
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .footer-inner { flex-direction: column; gap: 10px; }
 }
+
+/* ==========================================================================
+   DYNAMIC PORTFOLIO ADDITIONS & COOL INTERACTIVE ENHANCEMENTS
+   ========================================================================== */
+
+/* ===== CUSTOM TRAILING CURSOR ===== */
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #3bc9b0; /* Teal/Cyan */
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(124, 106, 255, 0.45); /* Indigo/Purple */
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.3s, 
+              background-color 0.3s;
+}
+
+/* Cursor Hover states */
+body.cursor-hover .cursor-dot {
+  background-color: #7c6aff;
+  width: 4px;
+  height: 4px;
+}
+body.cursor-hover .cursor-ring {
+  width: 52px;
+  height: 52px;
+  border-color: #7c6aff;
+  background-color: rgba(124, 106, 255, 0.08);
+}
+body.cursor-active .cursor-ring {
+  width: 24px;
+  height: 24px;
+  border-color: #3bc9b0;
+  background-color: rgba(59, 201, 176, 0.15);
+}
+
+/* ===== CONNECT EMAIL TOAST ===== */
+.connect-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(12, 12, 28, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(124, 106, 255, 0.2);
+  border-radius: 8px;
+  padding: 14px 24px;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s;
+  z-index: 10001;
+  pointer-events: none;
+}
+.connect-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ===== INTERACTIVE CODE WINDOW GRAPHICS ===== */
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 14px;
+}
+.header-dots {
+  display: flex;
+  gap: 8px;
+}
+.run-code-btn {
+  background: rgba(124, 106, 255, 0.1);
+  border: 1px solid rgba(124, 106, 255, 0.3);
+  border-radius: 4px;
+  color: #7c6aff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  transition: all 0.3s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.run-code-btn:hover {
+  background: #7c6aff;
+  color: #fff;
+  border-color: #7c6aff;
+}
+.run-code-btn i {
+  font-size: 0.65rem;
+}
+.code-output {
+  background: #080814;
+  border-top: 1px solid #161632;
+  padding: 12px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.code-output.show {
+  display: block;
+  opacity: 1;
+}
+.t-accent { color: #3bc9b0; }
+.t-success { color: #50fa7b; }
+
+/* ===== SPRING PHYSICS FOR SKILL PROGRESS GAUGE REVEALS ===== */
+.fill {
+  transition: width 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+/* ===== MAGNETIC ACTIONS TRANSLATE ANIMATION ===== */
+.magnetic-node {
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  display: inline-flex;
+}
+
+/* ===== MOBILE VIEW OPTIMIZATIONS FOR DYNAMIC FEATURES ===== */
+@media (max-width: 900px) {
+  /* Hide custom trailing cursor on touch-based mobile screens */
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
+@media (max-width: 500px) {
+  /* Center and adjust the connect success toast on mobile viewports */
+  .connect-toast {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    text-align: center;
+    padding: 12px 16px;
+    font-size: 0.78rem;
+    transform: translateY(150px);
+  }
+  .connect-toast.show {
+    transform: translate(0);
+  }
+}
+

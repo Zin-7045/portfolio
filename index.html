@@ -10,6 +10,13 @@
 </head>
 <body>
 
+  <!-- Custom Trailing Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Email Copy Toast Notification -->
+  <div class="connect-toast" id="connectToast">Email copied to clipboard! ✦</div>
+
   <nav>
     <div class="nav-inner">
       <a href="#" class="logo">AR<span class="dot">.</span></a>
@@ -20,7 +27,7 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="mailto:abdur.dev@outlook.com" class="nav-cta">Let's Talk</a>
+      <a href="javascript:void(0)" onclick="copyEmail(this)" class="nav-cta magnetic-node">Let's Talk</a>
       <div class="hamburger" onclick="toggleMenu()">
         <span></span><span></span><span></span>
       </div>
@@ -49,13 +56,13 @@
         </div>
         <p class="hero-desc">Crafting intelligent systems at the intersection of machine learning, big data engineering, and decentralized technologies.</p>
         <div class="hero-actions">
-          <a href="#projects" class="btn-primary">Explore Projects <i class="fas fa-arrow-right"></i></a>
-          <a href="https://github.com/Zin-7045" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> GitHub</a>
+          <a href="#projects" class="btn-primary magnetic-node">Explore Projects <i class="fas fa-arrow-right"></i></a>
+          <a href="https://github.com/Zin-7045" target="_blank" class="btn-ghost magnetic-node"><i class="fab fa-github"></i> GitHub</a>
         </div>
         <div class="hero-social">
-          <a href="https://github.com/Zin-7045" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/abdur-rehman-581305358?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-          <a href="mailto:abdur.dev@outlook.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/Zin-7045" target="_blank" class="magnetic-node"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/abdur-rehman-581305358?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="magnetic-node"><i class="fab fa-linkedin-in"></i></a>
+          <a href="javascript:void(0)" onclick="copyEmail(this)" class="magnetic-node"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
       <div class="hero-right">
@@ -64,7 +71,10 @@
         </div>
         <div class="code-window">
           <div class="code-header">
-            <span></span><span></span><span></span>
+            <div class="header-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <button class="run-code-btn" onclick="runHeroCode(this)" title="Run Script"><i class="fas fa-play"></i> Run</button>
           </div>
           <pre><code><span class="kw">class</span> <span class="type">DataScientist</span>:
     <span class="kw">def</span> <span class="fn">__init__</span>(<span class="self">self</span>):
@@ -80,6 +90,10 @@
 
     <span class="kw">def</span> <span class="fn">transform</span>(<span class="self">self</span>, data):
         <span class="kw">return</span> <span class="str">"insights ✦ impact"</span></code></pre>
+          <div class="code-output" id="heroCodeOutput">
+            <span class="t-accent">visitor@abdur:~$</span> python ds.py<br>
+            <span class="t-success">&gt;&gt; "insights ✦ impact"</span>
+          </div>
         </div>
       </div>
     </div>
@@ -94,11 +108,11 @@
         <div class="about-visual">
           <div class="stats-grid">
             <div class="stat-card">
-              <span class="stat-value">5+</span>
+              <span class="stat-value"><span class="count" data-target="5">0</span>+</span>
               <span class="stat-desc">Projects Delivered</span>
             </div>
             <div class="stat-card">
-              <span class="stat-value">3</span>
+              <span class="stat-value"><span class="count" data-target="3">0</span></span>
               <span class="stat-desc">Tech Domains</span>
             </div>
             <div class="stat-card">
@@ -294,15 +308,15 @@
         <h2 class="section-title">Let's <span class="gradient-text">Collaborate</span></h2>
         <p class="contact-text">I'm always open to discussing new projects, creative ideas, or opportunities to push the boundaries of data and AI.</p>
         <div class="contact-channels">
-          <a href="mailto:abdur.dev@outlook.com" class="channel">
+          <a href="javascript:void(0)" onclick="copyEmail(this)" class="channel magnetic-node">
             <i class="fas fa-envelope"></i>
             <span>abdur.dev@outlook.com</span>
           </a>
-          <a href="https://www.linkedin.com/in/abdur-rehman-581305358?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="channel">
+          <a href="https://www.linkedin.com/in/abdur-rehman-581305358?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="channel magnetic-node">
             <i class="fab fa-linkedin-in"></i>
             <span>LinkedIn</span>
           </a>
-          <a href="https://github.com/Zin-7045" target="_blank" class="channel">
+          <a href="https://github.com/Zin-7045" target="_blank" class="channel magnetic-node">
             <i class="fab fa-github"></i>
             <span>Zin-7045</span>
           </a>
