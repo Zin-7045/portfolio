@@ -810,9 +810,13 @@ footer i {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  #home { padding-top: 130px; }
+  #home { padding-top: 100px; }
   #about { padding: 60px 0; }
-  .hero { grid-template-columns: 1fr; text-align: center; }
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 15px; /* Prevent cumulative desktop 130px padding */
+  }
   .hero-text h1 { font-size: 2.5rem; }
   .avatar-mobile {
     display: flex;
