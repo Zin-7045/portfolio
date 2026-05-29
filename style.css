@@ -47,6 +47,7 @@ a { text-decoration: none; color: inherit; }
   font-weight: 700;
   margin-bottom: 50px;
   color: #e8e8f0;
+  text-align: center;
 }
 
 /* ===== NAV ===== */
@@ -849,8 +850,23 @@ footer i {
   .about-text { order: -1; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .skills-grid { grid-template-columns: 1fr; }
-  .project-card.featured { grid-template-columns: 1fr; }
-  .project-side { display: flex; gap: 16px; align-items: center; min-width: 0; }
+  .project-card.featured {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .project-side {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+  }
+  .project-tech {
+    justify-content: center;
+  }
+  .section-title {
+    text-align: center;
+  }
   .typewriter { font-size: 1.2rem; }
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
