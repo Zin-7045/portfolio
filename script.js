@@ -107,11 +107,12 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 const barObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.style.width = entry.target.getAttribute('data-width') || entry.target.classList.contains('p95') ? '95%' :
-        entry.target.classList.contains('p90') ? '90%' :
-        entry.target.classList.contains('p85') ? '85%' :
-        entry.target.classList.contains('p80') ? '80%' :
-        entry.target.classList.contains('p75') ? '75%' : '70%';
+      const el = entry.target;
+      const width = el.getAttribute('data-width');
+      if (width) {
+        el.style.width = width + '%';
+      }
+      barObserver.unobserve(el);
     }
   });
 }, { threshold: 0.3 });
